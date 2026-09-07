@@ -1,0 +1,1234 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8rem 0 5rem;
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.85;
+
+  background-image:
+    linear-gradient(
+      rgba(139, 26, 26, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(139, 26, 26, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+/* Dark mode */
+
+body.dark-mode .hero-grid {
+  background-image:
+    linear-gradient(
+      rgba(249, 246, 238, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(249, 246, 238, 0.05) 1px,
+      transparent 1px
+    );
+}
+
+/* Background glows */
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+}
+
+.hero-glow-one {
+  width: 500px;
+  height: 500px;
+
+  background: #8b1a1a;
+
+  top: -180px;
+  left: -180px;
+}
+
+.hero-glow-two {
+  width: 450px;
+  height: 450px;
+
+  background: #b32424;
+
+  right: -150px;
+  bottom: -150px;
+
+  opacity: 0.08;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+
+  align-items: center;
+  gap: 4.5rem;
+}
+
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+
+.hero-content {
+  max-width: 700px;
+}
+
+/* Badge */
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  padding: 0.55rem 1rem;
+
+  border-radius: 999px;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  color: #8b1a1a;
+
+  background: rgba(139, 26, 26, 0.07);
+
+  border: 1px solid rgba(139, 26, 26, 0.12);
+
+  margin-bottom: 1.75rem;
+}
+
+body.dark-mode .hero-badge {
+  background: rgba(139, 26, 26, 0.14);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Badge dot */
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #2ecc71;
+
+  box-shadow:
+    0 0 0 4px rgba(46, 204, 113, 0.12);
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.hero-title {
+  margin: 0;
+
+  font-size: clamp(3rem, 6vw, 5.7rem);
+
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  max-width: 800px;
+}
+
+body.dark-mode .hero-title {
+  color: #f4f1ec;
+}
+
+body.light-mode .hero-title {
+  color: #181818;
+}
+
+/* Highlight */
+
+.hero-title span {
+  display: block;
+
+  color: #8b1a1a;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.hero-description {
+  max-width: 620px;
+
+  margin: 1.8rem 0 0;
+
+  font-size: 1.08rem;
+
+  line-height: 1.8;
+}
+
+body.dark-mode .hero-description {
+  color: rgba(244, 241, 236, 0.68);
+}
+
+body.light-mode .hero-description {
+  color: rgba(24, 24, 24, 0.68);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2.2rem;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  min-height: 52px;
+
+  padding: 0 1.35rem;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 650;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Primary */
+
+.hero-primary-btn {
+  color: #ffffff;
+
+  background: #8b1a1a;
+
+  box-shadow:
+    0 10px 30px rgba(139, 26, 26, 0.22);
+}
+
+.hero-primary-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.hero-primary-btn:hover {
+  background: #741515;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 40px rgba(139, 26, 26, 0.3);
+}
+
+.hero-primary-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Secondary */
+
+.hero-secondary-btn {
+  color: inherit;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .hero-secondary-btn {
+  border-color: rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-secondary-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(139, 26, 26, 0.45);
+}
+
+/* =====================================================
+   TRUST ITEMS
+===================================================== */
+
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1.1rem 1.8rem;
+
+  margin-top: 2.6rem;
+
+  padding-top: 1.8rem;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .hero-trust {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  font-size: 0.85rem;
+
+  font-weight: 500;
+}
+
+.trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: rgba(46, 204, 113, 0.12);
+
+  color: #27ae60;
+
+  font-size: 0.65rem;
+}
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.hero-visual {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* Main card */
+
+.hero-info-card {
+  width: 100%;
+
+  max-width: 430px;
+
+  padding: 1.8rem;
+
+  border-radius: 24px;
+
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+body.dark-mode .hero-info-card {
+  background: rgba(24, 24, 24, 0.78);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.card-top {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1.5rem;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 15px;
+
+  color: #ffffff;
+
+  background: #8b1a1a;
+
+  font-size: 1.2rem;
+}
+
+.card-label {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  font-size: 0.65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  color: #8b1a1a;
+}
+
+.card-top h2 {
+  margin: 0;
+
+  font-size: 1.3rem;
+
+  letter-spacing: -0.02em;
+}
+
+/* =====================================================
+   LICENSE CARD
+===================================================== */
+
+.license-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 1.7rem;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b1a1a,
+      #641010
+    );
+
+  color: #ffffff;
+}
+
+.license-card::after {
+  content: '';
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  border-radius: 50%;
+
+  right: -70px;
+  top: -70px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.license-card span,
+.license-card small,
+.license-card strong {
+  position: relative;
+  z-index: 1;
+}
+
+.license-card span {
+  display: block;
+
+  font-size: 0.78rem;
+
+  opacity: 0.75;
+}
+
+.license-card strong {
+  display: block;
+
+  margin: 0.3rem 0;
+
+  font-size: 3.4rem;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.license-card small {
+  font-size: 0.75rem;
+
+  opacity: 0.7;
+}
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.card-details {
+  display: grid;
+
+  gap: 1.2rem;
+
+  margin-top: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.85rem;
+}
+
+.detail-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  color: #8b1a1a;
+
+  background: rgba(139, 26, 26, 0.08);
+}
+
+.detail-item span {
+  display: block;
+
+  margin-bottom: 0.3rem;
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  color: #8b1a1a;
+}
+
+.detail-item p {
+  margin: 0;
+
+  font-size: 0.88rem;
+
+  line-height: 1.55;
+}
+
+body.dark-mode .detail-item p {
+  color: rgba(244, 241, 236, 0.75);
+}
+
+body.light-mode .detail-item p {
+  color: rgba(24, 24, 24, 0.7);
+}
+
+/* =====================================================
+   FLOATING STATUS CARD
+===================================================== */
+
+.floating-status-card {
+  position: absolute;
+
+  right: -18px;
+  bottom: -22px;
+  left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  padding: 0.9rem 1rem;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.1);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+body.dark-mode .floating-status-card {
+  background: rgba(30, 30, 30, 0.92);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #2ecc71;
+
+  box-shadow:
+    0 0 0 4px rgba(46, 204, 113, 0.12);
+}
+
+.floating-status-card strong {
+  display: block;
+
+  font-size: 0.75rem;
+}
+
+.floating-status-card span:not(.status-dot) {
+  display: block;
+
+  margin-top: 0.2rem;
+
+  font-size: 0.65rem;
+
+  opacity: 0.6;
+}
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+.hero-scroll {
+  position: absolute;
+
+  left: 50%;
+  bottom: 1.8rem;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  opacity: 0.55;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 30px;
+
+  background: currentColor;
+
+  opacity: 0.5;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+
+  .hero-container {
+    gap: 3rem;
+  }
+
+  .floating-status-card {
+    right: 12px;
+    left: auto;
+  }
+
+}
+
+/* =====================================================
+   MOBILE / TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      8rem 0
+      5rem;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 4rem;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: 100%;
+  }
+
+  .floating-status-card {
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    bottom: -25px;
+    right: auto;
+
+    white-space: nowrap;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding-top: 7rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.85rem;
+  }
+
+  .hero-info-card {
+    padding: 1.25rem;
+
+    border-radius: 20px;
+  }
+
+  .floating-status-card {
+    display: none;
+  }
+
+  .hero-grid {
+    background-size: 32px 32px;
+  }
+
+}
+/* =====================================================
+   REFINED DARK MODE + INTERACTION LAYER
+   ===================================================== */
+
+.hero,
+.hero * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Warm ivory is the primary dark-mode text accent */
+body.dark-mode .hero-title,
+body.dark-mode .hero-description,
+body.dark-mode .hero-secondary-btn,
+body.dark-mode .trust-item,
+body.dark-mode .detail-item p,
+body.dark-mode .card-top h2,
+body.dark-mode .hero-scroll {
+  color: #F9F6EE;
+}
+
+body.dark-mode .hero-description,
+body.dark-mode .detail-item p {
+  color: rgba(249, 246, 238, 0.72);
+}
+
+/* Brighter red so the second color of the title still pops on a dark background */
+body.dark-mode .hero-title span {
+  color: #ff5c52;
+}
+
+body.dark-mode .hero-secondary-btn {
+  border-color: rgba(249, 246, 238, 0.18);
+  background: rgba(249, 246, 238, 0.035);
+}
+
+/* Softer, more premium hero title */
+.hero-title {
+  text-wrap: balance;
+}
+
+.hero-title span {
+  transition:
+    color 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+.hero-content:hover .hero-title span {
+  letter-spacing: -0.035em;
+}
+
+/* Buttons: lift + subtle glow + press feedback */
+.hero-primary-btn,
+.hero-secondary-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: transform;
+  transition:
+    transform 0.28s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.hero-primary-btn::before,
+.hero-secondary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,.18) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  transition: transform .55s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-primary-btn:hover::before,
+.hero-secondary-btn:hover::before {
+  transform: translateX(120%);
+}
+
+.hero-primary-btn:active,
+.hero-secondary-btn:active {
+  transform: translateY(1px) scale(.97);
+  transition-duration: .08s;
+}
+
+body.dark-mode .hero-primary-btn:hover {
+  background: #9f2424;
+  box-shadow:
+    0 16px 42px rgba(139, 26, 26, .32),
+    0 0 0 1px rgba(249,246,238,.08);
+}
+
+body.dark-mode .hero-secondary-btn:hover {
+  color: #F9F6EE;
+  background: rgba(249,246,238,.07);
+  border-color: rgba(249,246,238,.38);
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+
+/* Trust items become subtle interactive chips */
+.trust-item {
+  padding: .5rem .65rem;
+  margin: -.5rem -.65rem;
+  border-radius: 12px;
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.trust-item:hover {
+  transform: translateY(-2px);
+  background: rgba(139,26,26,.055);
+}
+
+body.dark-mode .trust-item:hover {
+  background: rgba(249,246,238,.055);
+}
+
+.trust-icon {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.trust-item:hover .trust-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 0 0 5px rgba(46,204,113,.07);
+}
+
+/* Main information card: layered hover movement */
+.hero-info-card {
+  overflow: visible;
+  border: 1px solid rgba(0,0,0,.045);
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .45s ease;
+}
+
+.hero-info-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.26),
+    transparent 38%
+  );
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.hero-info-card:hover {
+  transform: translateY(-8px) rotateX(1deg);
+  border-color: rgba(139,26,26,.12);
+  box-shadow:
+    0 38px 90px rgba(0,0,0,.12),
+    0 10px 30px rgba(139,26,26,.05);
+}
+
+.hero-info-card:hover::before {
+  opacity: 1;
+}
+
+body.dark-mode .hero-info-card {
+  border-color: rgba(249,246,238,.075);
+}
+
+body.dark-mode .hero-info-card:hover {
+  border-color: rgba(249,246,238,.14);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.36),
+    0 12px 35px rgba(139,26,26,.09);
+}
+
+/* Header icon has a gentle magnetic feel */
+.card-icon {
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease;
+}
+
+.hero-info-card:hover .card-icon {
+  transform: translateY(-2px) rotate(-3deg);
+  box-shadow: 0 10px 28px rgba(139,26,26,.2);
+}
+
+/* =====================================================
+   LICENSE CARD — upgraded visual treatment
+   ===================================================== */
+
+.license-card {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 18px 45px rgba(100,16,16,.18);
+  transition:
+    transform .38s cubic-bezier(.2,.8,.2,1),
+    box-shadow .38s ease,
+    filter .38s ease;
+}
+
+.license-card::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  left: -110px;
+  bottom: -155px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow:
+    0 0 0 30px rgba(255,255,255,.018),
+    0 0 0 60px rgba(255,255,255,.014);
+  pointer-events: none;
+}
+
+.license-card::after {
+  width: 190px;
+  height: 190px;
+  right: -90px;
+  top: -95px;
+  background: rgba(255,255,255,.075);
+  box-shadow: 0 0 0 22px rgba(255,255,255,.025);
+  transition: transform .5s ease;
+}
+
+.license-card:hover {
+  transform: translateY(-4px) scale(1.012);
+  filter: saturate(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 24px 55px rgba(100,16,16,.24);
+}
+
+.license-card:hover::after {
+  transform: scale(1.15) translate(-8px, 8px);
+}
+
+.license-card span {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .68rem;
+}
+
+.license-card strong {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 3px 18px rgba(0,0,0,.16);
+  transition:
+    transform .3s ease,
+    letter-spacing .3s ease;
+}
+
+.license-card:hover strong {
+  transform: translateX(3px);
+  letter-spacing: -.035em;
+}
+
+.license-card small {
+  letter-spacing: .01em;
+}
+
+/* Details become tactile rows */
+.detail-item {
+  padding: .65rem;
+  margin: -.65rem;
+  border-radius: 15px;
+  transition:
+    transform .28s ease,
+    background .28s ease;
+}
+
+.detail-item:hover {
+  transform: translateX(4px);
+  background: rgba(139,26,26,.045);
+}
+
+body.dark-mode .detail-item:hover {
+  background: rgba(249,246,238,.045);
+}
+
+.detail-icon {
+  transition:
+    transform .28s cubic-bezier(.2,.8,.2,1),
+    background .28s ease,
+    box-shadow .28s ease;
+}
+
+.detail-item:hover .detail-icon {
+  transform: scale(1.07) rotate(2deg);
+  box-shadow: 0 8px 20px rgba(139,26,26,.1);
+}
+
+body.dark-mode .detail-icon {
+  color: #F9F6EE;
+  background: rgba(249,246,238,.075);
+}
+
+/* Floating status: slight float instead of static */
+.floating-status-card {
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+  animation: statusFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes statusFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.floating-status-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.14);
+  animation-play-state: paused;
+}
+
+/* Scroll indicator */
+.scroll-line {
+  transform-origin: top;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(.7); opacity: .35; }
+  50% { transform: scaleY(1); opacity: .8; }
+}
+
+/* Real touch feedback for phones/tablets */
+@media (hover: none), (pointer: coarse) {
+  .hero-info-card:active {
+    transform: scale(.985);
+  }
+
+  .license-card:active {
+    transform: scale(.985);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.12),
+      0 12px 30px rgba(100,16,16,.2);
+  }
+
+  .trust-item:active,
+  .detail-item:active {
+    transform: scale(.98);
+  }
+
+  .hero-primary-btn:active,
+  .hero-secondary-btn:active {
+    transform: scale(.97);
+  }
+
+  .hero-primary-btn::before,
+  .hero-secondary-btn::before {
+    display: none;
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero *,
+  .hero *::before,
+  .hero *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keep mobile card interactions comfortable */
+@media (max-width: 600px) {
+  .hero-info-card:hover {
+    transform: none;
+  }
+
+  .license-card {
+    min-height: 155px;
+  }
+
+  .license-card strong {
+    font-size: 3.15rem;
+  }
+
+  .detail-item:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,135 @@
+/* =========================================
+   BOX SIZING
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   HTML
+========================================= */
+
+html {
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   ROOT
+========================================= */
+
+#root {
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: initial;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   MEDIA
+========================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+
+  max-width: 100%;
+}
+
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================
+   PREVENT LONG TEXT OVERFLOW
+========================================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   MOBILE SAFETY
+========================================= */
+
+@media (max-width: 768px) {
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
