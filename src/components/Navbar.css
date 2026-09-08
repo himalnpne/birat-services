@@ -995,3 +995,31 @@ body.light-mode .mobile-menu-footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* Active link styles for routing */
+.nav-link.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active::after {
+  width: 18px;
+}
+
+body.light-mode .nav-link.active {
+  color: #171717;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.mobile-nav-link.active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.light-mode .mobile-nav-link.active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-link.active .mobile-link-arrow {
+  color: #9b2226;
+  transform: translateX(4px);
+}

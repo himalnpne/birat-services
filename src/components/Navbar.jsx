@@ -1,4 +1,6 @@
+// Navbar.jsx
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom'; // Add these imports
 import {
   FaBars,
   FaTimes,
@@ -11,12 +13,14 @@ import './Navbar.css';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation(); // Add this
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   useEffect(() => {
@@ -53,6 +57,11 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
@@ -70,38 +79,34 @@ const Navbar = () => {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-container">
 
-          {/* Logo */}
-          <a
-            href="#home"
+          {/* Logo - changed from <a> to <Link> */}
+          <Link
+            to="/"
             className="nav-logo"
-            onClick={closeMenu}
             aria-label="Birat Services Home"
           >
             <span className="logo-mark">BS</span>
-
             <span className="logo-content">
               <span className="logo-main">Birat</span>
               <span className="logo-sub">Services</span>
             </span>
-          </a>
+          </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - changed from <a> to <Link> */}
           <div className="desktop-nav">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="nav-link"
+                to={link.path}
+                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Right Controls */}
           <div className="nav-actions">
-
-            {/* Theme Toggle - Always Outside Mobile Menu */}
             <button
               className="theme-toggle"
               onClick={toggleDarkMode}
@@ -113,11 +118,11 @@ const Navbar = () => {
               </span>
             </button>
 
-            {/* Desktop CTA */}
-            <a href="#contact" className="nav-cta">
+            {/* Contact CTA - changed from <a> to <Link> */}
+            <Link to="/contact" className="nav-cta">
               <span>Contact Us</span>
               <FaArrowRight />
-            </a>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -128,7 +133,6 @@ const Navbar = () => {
             >
               {isOpen ? <FaTimes /> : <FaBars />}
             </button>
-
           </div>
         </div>
       </nav>
@@ -141,20 +145,14 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <aside className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-
         <div className="mobile-menu-header">
-          <a
-            href="#home"
-            className="mobile-logo"
-            onClick={closeMenu}
-          >
+          <Link to="/" className="mobile-logo" onClick={closeMenu}>
             <span className="logo-mark">BS</span>
-
             <span className="logo-content">
               <span className="logo-main">Birat</span>
               <span className="logo-sub">Services</span>
             </span>
-          </a>
+          </Link>
 
           <button
             className="mobile-close"
@@ -167,35 +165,28 @@ const Navbar = () => {
 
         <div className="mobile-nav-links">
           {navLinks.map((link, index) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
-              className="mobile-nav-link"
+              to={link.path}
+              className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
               onClick={closeMenu}
               style={{ '--delay': `${index * 0.08}s` }}
             >
               <span className="mobile-link-number">
                 0{index + 1}
               </span>
-
               <span>{link.name}</span>
-
               <FaArrowRight className="mobile-link-arrow" />
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="mobile-menu-footer">
-          <a
-            href="#contact"
-            className="mobile-cta"
-            onClick={closeMenu}
-          >
+          <Link to="/contact" className="mobile-cta" onClick={closeMenu}>
             Contact Us
             <FaArrowRight />
-          </a>
+          </Link>
         </div>
-
       </aside>
     </>
   );
