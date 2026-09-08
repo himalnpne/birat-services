@@ -1,4 +1,4 @@
-// App.jsx
+// src/App.jsx
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -6,7 +6,7 @@ import Hero from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ'; // Import FAQ
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
@@ -15,9 +15,15 @@ import './App.css';
 // Scroll to top component
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }, [pathname]);
+  
   return null;
 };
 
@@ -27,16 +33,35 @@ const HomePage = () => (
     <Hero />
     <About />
     <Services />
-    <FAQ /> {/* FAQ now above testimonials */}
+    <FAQ />
     <Testimonials />
   </>
 );
 
 // Individual pages
-const AboutPage = () => <div style={{ paddingTop: '80px' }}><About /></div>;
-const ServicesPage = () => <div style={{ paddingTop: '80px' }}><Services /></div>;
-const FAQPage = () => <div style={{ paddingTop: '80px' }}><FAQ isPage={true} /></div>;
-const ContactPage = () => <div style={{ paddingTop: '80px' }}><Contact /></div>;
+const AboutPage = () => (
+  <div style={{ paddingTop: '80px' }}>
+    <About />
+  </div>
+);
+
+const ServicesPage = () => (
+  <div style={{ paddingTop: '80px' }}>
+    <Services />
+  </div>
+);
+
+const FAQPage = () => (
+  <div style={{ paddingTop: '80px' }}>
+    <FAQ isPage={true} />
+  </div>
+);
+
+const ContactPage = () => (
+  <div style={{ paddingTop: '80px' }}>
+    <Contact />
+  </div>
+);
 
 function App() {
   return (
